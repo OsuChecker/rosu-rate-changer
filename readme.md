@@ -21,6 +21,7 @@ A Rust library for modifying osu! beatmap and audio speeds with high precision.
     ├── lib.rs 
     └── osu.rs // modify osu and create a new one
 ```
+
 ## Installation
 
 Add this to your `Cargo.toml`:
