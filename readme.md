@@ -19,7 +19,7 @@ A Rust library for modifying osu! beatmap and audio speeds with high precision.
     ├── audio.rs // modify audio
     ├── constants.rs // constants that can be changed.
     ├── lib.rs 
-    └── osu.rs // crate osu
+    └── osu.rs // modify osu and create a new one
 ```
 ## Installation
 
