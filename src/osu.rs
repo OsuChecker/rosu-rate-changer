@@ -35,7 +35,15 @@ pub fn change_osu_speed(map: &mut Beatmap, input_path: &str, rate: f32, audio_pa
         if let HitObjectKind::Hold(hold) = &mut hit_object.kind {
             update_time(&mut hold.duration);
         }
+        else if let HitObjectKind::Spinner(spinner) = &mut hit_object.kind {
+            update_time(&mut spinner.duration);
+        }
+        else if let HitObjectKind::Slider(slider) = &mut hit_object.kind{
+            slider.velocity *= multiplier;
+        }
     }
+
+
     let path = Path::new(input_path);
     let output_path = path.with_file_name(format!(
         "{}_{}x.osu",
