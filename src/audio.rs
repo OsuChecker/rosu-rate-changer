@@ -6,7 +6,7 @@ use symphonia::core::audio::AudioBufferRef;
 use symphonia::core::audio::Signal;
 use vorbis_encoder::Encoder as VorbisEncoder;
 use rosu_map;
-use crate::const_para::{BITS_PER_SAMPLE, BUFFER_SIZE, COMPRESSION_FACTOR, DEFAULT_SAMPLE_RATE, F_CUTOFF, OVERSAMPLING_FACTOR, SINC_LEN};
+use crate::constants::{BITS_PER_SAMPLE, BUFFER_SIZE, COMPRESSION_FACTOR, DEFAULT_SAMPLE_RATE, F_CUTOFF, OVERSAMPLING_FACTOR, SINC_LEN};
 
 pub fn change_audio_speed_wav(input_path: &str, output_path: &str, speed: f32) -> eyre::Result<()> {
     let file = std::fs::File::open(input_path)?;

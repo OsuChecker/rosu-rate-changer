@@ -10,6 +10,17 @@ A Rust library for modifying osu! beatmap and audio speeds with high precision.
 - Safe file path handling
 - Cross-platform compatibility
 
+## Projet Structure 
+```
+├── Cargo.lock
+├── Cargo.toml
+├── readme.md
+└── src
+    ├── audio.rs // modify audio
+    ├── constants.rs // constants that can be changed.
+    ├── lib.rs 
+    └── osu.rs // crate osu
+```
 ## Installation
 
 Add this to your `Cargo.toml`:

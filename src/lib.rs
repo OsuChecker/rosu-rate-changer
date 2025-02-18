@@ -1,6 +1,6 @@
 mod audio;
 mod osu;
-mod const_para;
+mod constants;
 
 use std::fs;
 use rosu_map::Beatmap;
