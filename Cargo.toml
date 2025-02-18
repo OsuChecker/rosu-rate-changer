@@ -1,0 +1,12 @@
+[package]
+name = "rosu-rate"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+eyre = "0.6.12"
+hound = "3.5.1"
+rosu-map = "0.2.0"
+rubato = "0.16.1"
+symphonia = "0.5.4"
+vorbis-encoder = "0.1.4"
