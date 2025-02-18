@@ -1,6 +1,7 @@
 # Osu Rate Changer Library
 
 A Rust library for modifying osu! beatmap and audio speeds with high precision.
+If you want to try what it look like you can check on Cobra 
 
 ## Library Features
 
@@ -79,8 +80,9 @@ const BITS_PER_SAMPLE: u16 = 16;
      - Enhance timing point synchronization algorithm
      - Implement precise breakpoint calculations
      - Better rate scaling for extreme values
-
-
+3. **Different Values**
+    - add support of differentes values like od etc
+      
 ## Contributing
 
 Contributions are welcome!<br>
