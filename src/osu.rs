@@ -4,14 +4,7 @@ use rosu_map::Beatmap;
 use rosu_map::section::hit_objects::HitObjectKind;
 
 
-macro_rules! update_points {
-    ($points:expr) =>
-    {
-        for point in $points {
-            update_time(&mut point.time);
-        }
-    };
-}
+
 
 
 pub fn change_osu_speed(map: &mut Beatmap, input_path: &str, rate: f32, audio_path: &str) -> eyre::Result<()> {
@@ -24,7 +17,14 @@ pub fn change_osu_speed(map: &mut Beatmap, input_path: &str, rate: f32, audio_pa
         update_time(&mut point.time);
         update_time(&mut point.beat_len);
     }
-
+    macro_rules! update_points {
+    ($points:expr) =>
+    {
+        for point in $points {
+            update_time(&mut point.time);
+        }
+    };
+}
     update_points!(&mut control_points.timing_points);
     update_points!(&mut control_points.difficulty_points);
     update_points!(&mut control_points.effect_points);

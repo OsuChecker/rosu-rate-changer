@@ -8,5 +8,26 @@ eyre = "0.6.12"
 hound = "3.5.1"
 rosu-map = "0.2.0"
 rubato = "0.16.1"
-symphonia = "0.5.4"
+symphonia = { version="0.5.4", features = ["mp3", "wav", "aac", "isomp4", "alac"] }
 vorbis-encoder = "0.1.4"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+
+[profile.test]
+opt-level = 3
+
+[profile.bench]
+inherits = "release"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[[bench]]
+name = "audio_processing_benchmark"
+harness = false
