@@ -1,6 +1,6 @@
 [package]
 name = "rosu-rate-changer"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Osef0760 <osefcode@gmail.com>"]
 description = "Rate changer for osu!"
@@ -18,8 +18,7 @@ rosu-map = "0.2.0"
 rubato = "0.16.1"
 symphonia = { version = "0.5.4", features = ["mp3", "wav", "aac", "isomp4", "alac"] }
 vorbis-encoder = "0.1.4"
-serde = { version = "1.0.217", features = ["derive"] }
-serde_json = "1.0.137"
+
 
 [profile.release]
 opt-level = 3
