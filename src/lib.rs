@@ -9,8 +9,8 @@ pub use osu::*;
 use std::path::{Path, PathBuf};
 
 
-pub fn rate_map(osu_file_path: &str, rate : f32) -> eyre::Result<()>{
-    let mut map: Beatmap = rosu_map::Beatmap::from_path(osu_file_path)?;
+pub fn rate_map_from_beatmap(map: &mut Beatmap, osu_file_path : &str,  rate : f32) -> eyre::Result<()>{
+
     let audio_path = map.audio_file.clone();
     let audio_output_path = PathBuf::from(format!(
         "{}_{}.ogg",
@@ -20,16 +20,12 @@ pub fn rate_map(osu_file_path: &str, rate : f32) -> eyre::Result<()>{
             .ok_or_else(|| eyre::eyre!("Invalid audio file name"))?,
         rate
     )).to_str().unwrap().to_string();
-    println!("Audio output path: {}", audio_output_path);
-    change_osu_speed(&mut map, osu_file_path, rate, &audio_output_path)?;
-
+    change_osu_speed(map, osu_file_path, rate, &audio_output_path)?;
 
     let osu_file_dir = Path::new(&osu_file_path)
         .parent()
         .ok_or_else(|| eyre::eyre!("Invalid osu file directory"))?;
-    println!("Osu file directory: {}", osu_file_dir.to_str().unwrap());
     let audio_path = osu_file_dir.join(audio_path);
-    println!("Audio path: {}", audio_path.to_str().unwrap());
     let audio_output_path = audio_path.with_file_name(format!(
         "{}_{}.ogg",
         audio_path
@@ -40,6 +36,13 @@ pub fn rate_map(osu_file_path: &str, rate : f32) -> eyre::Result<()>{
     )).to_str().unwrap().to_string();
 
     change_audio_speed(&audio_path.to_str().unwrap(), &audio_output_path, rate)?;
+    Ok(())
+}
+
+
+pub fn rate_map(osu_file_path: &str, rate : f32) -> eyre::Result<()>{
+    let mut map: Beatmap = rosu_map::Beatmap::from_path(osu_file_path)?;
+    rate_map_from_beatmap(&mut map,osu_file_path,rate)?;
     Ok(())
 }
 
